@@ -12,18 +12,18 @@ class SI(commands.Cog):
         
         #Prints out the SI Schedule
         #WARNING: Change the schedule based off the school year
-        if (arg1 == "schedule" and ctx.channel.id == 806915893594554399):
-            await ctx.send("```\nOffice Hours:\nMonday/Wednesday: 5:00pm - 6:00pm\n\nSI Sessions:\nTuesday/Thursday: 6:00pm - 7:30pm\n```")
+        if (arg1 == "schedule" and ctx.channel.id == 877927229382881290 or ctx.channel.id == 877963775746134106):
+            await ctx.send("```\nOffice Hours:\nTuesday/Thursday: 7:00pm - 8:00pm\n\nSI Sessions:\nMonday/Friday: 7:00pm - 8:45pm\n```")
         
         #Alerts the SI that a user needs assistance
         #WARNING: Change the IDs according to the school year
-        elif (arg1 == "assist" and ctx.channel.id == 806915893594554399):
+        elif (arg1 == "assist" and ctx.channel.id == 877927229382881290 or ctx.channel.id == 877963775746134106):
             assist = f"<@{ctx.author.id}>"
             await ctx.send(f"<@131420748823789568>, {assist} is in need of assistance.")
         
         #Alerts all students that the SI session has been cancelled, for CIS172
         #WARNING: Change the IDs according to the school year
-        elif (arg1 == "cancel" and ctx.channel.id == 806915893594554399 and ctx.author.id == 131420748823789568):
+        elif (arg1 == "cancel" and ctx.channel.id == 877927229382881290 or ctx.channel.id == 877963775746134106 and ctx.author.id == 131420748823789568):
             await ctx.send(f"<@806916153255133184>, <@131420748823789568> has cancelled the SI meeting for today...")
 
 
