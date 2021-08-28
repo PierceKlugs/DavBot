@@ -2,7 +2,7 @@ import discord
 from cogs import *
 import os
 from discord.ext import commands
-from discord.ext.commands.core import command
+from discord.ext.commands.core import Command
 
 #Important Variables
 si_id = "<@131420748823789568>"

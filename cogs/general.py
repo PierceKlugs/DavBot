@@ -1,8 +1,9 @@
 import discord
-from discord import client
-from discord.client import Client
+from discord.colour import Color
 from discord.ext import commands
 from discord.ext.commands import bot
+from discord import Embed
+
 
 class General(commands.Cog):
     def __init__(self, bot: commands.Bot):
@@ -27,15 +28,21 @@ class General(commands.Cog):
         await ctx.author.send(f"Canvas: https://fhu.instructure.com/login/canvas \nGoogle Classroom: https://classroom.google.com/u/0/h \nGitHub: https://github.com/ \nVisual Studio Code: https://code.visualstudio.com/ \nPython: https://www.python.org/downloads/")
 
     @commands.command()
-    async def commands(self, ctx: commands.Context):
+    async def stuff(self, ctx: commands.Context):
         await ctx.author.send(f"```yaml\nDavBot | Commands\n=================================\n$assist - Notifies Moderators and Owners you need assistance.\n\n$links - Dav sends you a message with all class links.\n\n$legendary <NAME OF PROFESSOR> - Displays a GIF of a Professor (Options: casey,scott,nichols)\n\n$SI <OPTION> - Will do SI commands (Options: schedule, assist)\n\n```")
 
-    @bot.command()
-    async def poll(cmd, *, question):
-        poll_embed = discord.Embed(title = f"{question}", description = "Respond down below:")
-        sent_message = await cmd.send(embed = poll_embed)
+    @commands.command()
+    async def poll(self, ctx: commands.Context, *question):
+        poll_item = Embed(title = f"{' '.join(question)}", description = "Respond down below:", colour=Color.from_rgb(128, 0, 0))
+        poll_item.set_thumbnail(url="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwaterview.org%2Fwp-content%2Fuploads%2F2018%2F12%2Fdavid-shannon.jpg&f=1&nofb=1")
+        sent_message = await ctx.send(embed=poll_item)
         await sent_message.add_reaction("🇽")
         await sent_message.add_reaction("✅")
+        #poll_embed = discord.Embed(title = f"{question}", description = "Respond down below:")
+        #sent_message = await ctx.send(embed = poll_embed)
+        #await sent_message.add_reaction("🇽")
+        #await sent_message.add_reaction("✅")
+
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
