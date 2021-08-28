@@ -30,6 +30,12 @@ class General(commands.Cog):
     async def commands(self, ctx: commands.Context):
         await ctx.author.send(f"```yaml\nDavBot | Commands\n=================================\n$assist - Notifies Moderators and Owners you need assistance.\n\n$links - Dav sends you a message with all class links.\n\n$legendary <NAME OF PROFESSOR> - Displays a GIF of a Professor (Options: casey,scott,nichols)\n\n$SI <OPTION> - Will do SI commands (Options: schedule, assist)\n\n```")
 
+    @bot.command()
+    async def poll(cmd, *, question):
+        poll_embed = discord.Embed(title = f"{question}", description = "Respond down below:")
+        sent_message = await cmd.send(embed = poll_embed)
+        await sent_message.add_reaction("🇽")
+        await sent_message.add_reaction("✅")
 
 def setup(bot: commands.Bot):
     bot.add_cog(General(bot))
