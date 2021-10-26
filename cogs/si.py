@@ -14,8 +14,11 @@ class SI(commands.Cog):
         #Prints out the SI Schedule
         #WARNING: Change the schedule based off the school year
         if (arg1 == "schedule"):
+            cis171_01 = self.bot.get_channel(877927229382881290)
+            cis171_02 = self.bot.get_channel(877963775746134106)
             if(ctx.author.id == 131420748823789568):
-                await ctx.send("```\nOffice Hours:\nTuesday: 7:00pm - 8:00pm\nWednesday: 8:00pm - 9:00pm\n\nSI Sessions:\nMonday/Thursday: 7:00pm - 8:00pm\n```")
+                await cis171_01.send("```\nOffice Hours:\nTuesday: 7:00pm - 8:00pm\nWednesday: 8:00pm - 9:00pm\n\nSI Sessions:\nMonday/Thursday: 7:00pm - 8:00pm\n```")
+                await cis171_02.send("```\nOffice Hours:\nTuesday: 7:00pm - 8:00pm\nWednesday: 8:00pm - 9:00pm\n\nSI Sessions:\nMonday/Thursday: 7:00pm - 8:00pm\n```")
             else:
                 await ctx.author.send("```\nOffice Hours:\nTuesday: 7:00pm - 8:00pm\nWednesday: 8:00pm - 9:00pm\n\nSI Sessions:\nMonday/Thursday: 7:00pm - 8:00pm\n```")
             

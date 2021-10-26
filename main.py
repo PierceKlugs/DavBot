@@ -20,5 +20,5 @@ async def on_ready():
     print(f"{bot.user} is online!")
 
 #Token and Run
-token = open("C:/Users/Admin/Desktop/Token/token.txt").readlines()[0]
+token = open("./Token/token.txt").readlines()[0]
 bot.run(f'{token}')
