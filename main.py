@@ -13,6 +13,7 @@ bot.remove_command('help')
 #Load all Cogs
 bot.load_extension("cogs.si")
 bot.load_extension("cogs.general")
+bot.load_extension("cogs.events")
 
 #Start Up
 @bot.event
