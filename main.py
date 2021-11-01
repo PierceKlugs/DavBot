@@ -18,6 +18,8 @@ bot.load_extension("cogs.general")
 @bot.event
 async def on_ready():
     print(f"{bot.user} is online!")
+    
+
 
 #Token and Run
 token = open("./Token/token.txt").readlines()[0]

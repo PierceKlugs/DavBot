@@ -40,7 +40,7 @@ class General(commands.Cog):
         sent_message = await ctx.send(embed=poll_item)
         await sent_message.add_reaction("👍")
         await sent_message.add_reaction("👎")
-        
+
         #poll_embed = discord.Embed(title = f"{question}", description = "Respond down below:")
         #sent_message = await ctx.send(embed = poll_embed)
         #await sent_message.add_reaction("🇽")
