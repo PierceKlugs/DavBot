@@ -21,12 +21,11 @@ bot.load_extension("cogs.general")
 @bot.event
 async def on_ready():
     print(f"{bot.user} is online!")
-    channel = bot.get_channel(892118314933948456)
-    weatherurl = requests.get(
-    f"https://api.weather.gov/points/35.4393,-88.6418").json()
-        #channel = self.bot.get_channel(892118314933948456)
-    forecast = requests.get(weatherurl["properties"]["forecast"]).json()["properties"]
+    channel = bot.get_channel(782127136655671316)
+
     while True:
+        weatherurl = requests.get(f"https://api.weather.gov/points/35.4393,-88.6418").json()
+        forecast = requests.get(weatherurl["properties"]["forecast"]).json()["properties"]
         # channel.send(f"{weatherurl.json()}")
         times = forecast["periods"]
         message = ""
@@ -37,16 +36,27 @@ async def on_ready():
         windspeed = 0
         shortforecast = ""
         detailedforecast = ""
-
+        message = f"``` WEATHER\n============================\n"
+        list_periods = []
         # Print
         for i in times:
-            period = i["name"]
-            temperature = i["temperature"]
-            windspeed = i["windSpeed"]
-            shortforecast = i["shortForecast"]
-            detailedforecast = i["detailedForecast"]
-            message = f"```WEATHER\n============================\nTime: {period}\nTemperature: {temperature}\nWindspeed: {windspeed}\n```"
-            channel.send(f"{message}")
+            if i["number"] == 1 or i["number"] == 2 or i["number"] == 3:
+                period = i["name"]
+                temperature = i["temperature"]
+                windspeed = i["windSpeed"]
+                shortforecast = i["shortForecast"]
+                detailedforecast = i["detailedForecast"]
+                if i["number"] == 3:
+                    list_periods.append(f"Time: {period}\nTemperature: {temperature}F\nForecast: {shortforecast}```")
+                else:
+                    list_periods.append(f"Time: {period}\nTemperature: {temperature}F\nForecast: {shortforecast}\n\n")
+                    
+
+        for i in list_periods:
+            message += i
+                
+        
+        await channel.send(f"{message}")
         time.sleep(86400)
 
 
