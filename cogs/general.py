@@ -25,7 +25,7 @@ class General(commands.Cog):
 
     @commands.command()
     async def links(self, ctx: commands.Context):
-        await ctx.author.send(f"Canvas: https://fhu.instructure.com/login/canvas \nGoogle Classroom: https://classroom.google.com/u/0/h \nGitHub: https://github.com/ \nVisual Studio Code: https://code.visualstudio.com/ \nPython: https://www.python.org/downloads/")
+        await ctx.channel.send(f"Canvas: <https://fhu.instructure.com/login/canvas> \nGoogle Classroom: <https://classroom.google.com/u/0/h> \nGitHub: <https://github.com/> \nVisual Studio Code: <https://code.visualstudio.com/> \nPython: <https://www.python.org/downloads/> \nFireship (Great Study Videos): <https://www.youtube.com/c/Fireship>")
 
 
     @commands.command()

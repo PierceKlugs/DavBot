@@ -7,11 +7,11 @@ import requests
 import time
 
 #Important Variables
-
 si_id = "<@131420748823789568>"
 cis172 = "<@806916153255133184>"
 bot = commands.Bot(command_prefix="$")
 bot.remove_command('help')
+
 #Load all Cogs
 bot.load_extension("cogs.si")
 bot.load_extension("cogs.general")

@@ -10,7 +10,7 @@ class SI(commands.Cog):
     @commands.command()
     #The SI command is a command designated as a tool for an SI in Computer Science
     async def SI(self, ctx: commands.Context, arg1: str):
-        si_channels = [933846939735293962]
+        si_channels = [782127136655671316]
         si_id = 131420748823789568
 
         #Prints out the SI Schedule
@@ -18,7 +18,11 @@ class SI(commands.Cog):
         if (arg1 == "schedule"):
             #Schedule File
             schedule_file = open("./schedule/schedule.txt")
-            schedule = schedule.readlines()[0]
+            schedule_lines = schedule_file.readlines()
+            schedule = ""
+            for line in schedule_lines:
+                schedule += line
+
 
             #Send out Schedule
             if(ctx.author.id == si_id):
@@ -38,7 +42,7 @@ class SI(commands.Cog):
         #WARNING: Change the IDs according to the school year
         elif (arg1 == "cancel" and ctx.author.id == si_id):
             for si_channel in si_channels:
-                    await self.bot.get_channel(si_channel).send(f"<@806916153255133184>, <@{si_id}> has cancelled the SI meeting for today...")
+                    await self.bot.get_channel(si_channel).send(f"@here, <@{si_id}> has cancelled the SI meeting for today...")
 
 
 
